@@ -1,6 +1,6 @@
 # QtNovaFrameless - Subwindow
 
-** QtNovaFrameless - Subwindo** is a reusable Qt widget that acts as a **frameless subwindow** inside another QWidget.  
+**QtNovaFrameless Subwindow** is a reusable Qt widget that acts as a **frameless subwindow** inside another QWidget.  
 It provides a custom **title bar**, **close button**, and supports **dark mode** for modern styled UIs.
 
 ---
