@@ -1,42 +1,59 @@
 #pragma once
-#include <QtWidgets>
-#include "../Button.h"
+#include "../../components/Button.h"
+
 #include <dwmapi.h>
 #include <windowsx.h>
 #include <windows.h>
 #include <QWindow>
+#include <QVBoxLayout>
 
 class SubWindow : public QWidget {
     Q_OBJECT
 
 public:
-    explicit SubWindow(int width = 250, int height = 250, QWidget *parent = nullptr);
+    explicit SubWindow(QSize size = QSize(250, 250), QWidget *parent = nullptr, bool closeButton = true, bool minimizeButton = false);
     virtual ~SubWindow() = default;
 
     void setDarkMode(bool value);
-    void applyThemedIcons();
-    void setupTitleBar();
-
+   
     QWidget* contentArea() const;
     QWidget* titleBarArea() const;
 
-    HWND hwnd;
-
-protected:
+protected: 
     void paintEvent(QPaintEvent *event) override;
     bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result) override;
     void showEvent(QShowEvent *event) override;
-
-private:
-    Button* windowButton();
-    Button *closeBtn = nullptr;
-
-    bool isDarkMode;
-
-    QWidget *titleBar = nullptr;
-    QWidget *_contentArea = nullptr;
-    QVBoxLayout *entireLayout = nullptr;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 private slots:
     void onCloseClicked();
+    void onMinimizedClicked();
+
+private:
+    void applyDWMEffects();
+    void applyThemedIcons();
+    void setupTitleBar();
+    Button* windowButton();
+
+    // Window Handle (Unique Identifier)
+    HWND hwnd;
+
+    // Dragging
+    bool m_dragging = false;
+    QPoint m_dragStartPos;
+
+    // Window Controls
+    Button *closeBtn = nullptr;
+    Button *minimizeBtn = nullptr;
+    bool hasCloseBtn = true;
+    bool hasMinimizeBtn = false;
+
+    // Theme Mode
+    bool isDarkMode = false;
+
+    QWidget *titleBar = nullptr;
+    QWidget *contentAreaWidget = nullptr;
+    QVBoxLayout *entireLayout = nullptr;
 };
