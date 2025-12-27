@@ -1,17 +1,15 @@
 # QtNovaFrameless - Subwindow
 
-**QtNovaFrameless Subwindow** is a reusable Qt widget that acts as a **frameless subwindow** inside another QWidget.  
-It provides a custom **title bar**, **close button**, and supports **dark mode** for modern styled UIs.
+**QtNovaFrameless Subwindow** is a reusable Qt widget that acts as a **frameless subwindow**. It provides a custom **title bar**, **close button**, and supports **dark mode** for modern styled UIs.
 
 ## ✨ Features
 - Frameless child window (no native OS frame).
-- Custom title bar with close and minimize button. You can enable or disable both buttons.
+- Custom title bar with close and minimize button.
 - Dark mode and themed icon support.
 - Extend content into titlebar without facing any difficulty
 
 ## Screenshot
 <img width="1592" height="847" alt="Screenshot (100)" src="https://github.com/user-attachments/assets/d205e38a-0ebe-4190-a154-84e081ad40a1" />
-
 
 ## 🚀 Usage
 
@@ -43,3 +41,5 @@ layout->addWidget(btn);
 // Show
 sub->show();
 ```
+> [!IMPORTANT]
+> If you want to enable close or minimze button in the titlebar of subwindow, then you must pass true value to the constructor of subwindow. You can disable both buttons by passing False to the constructor.
