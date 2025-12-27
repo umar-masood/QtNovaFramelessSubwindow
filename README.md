@@ -5,7 +5,7 @@ It provides a custom **title bar**, **close button**, and supports **dark mode**
 
 ## ✨ Features
 - Frameless child window (no native OS frame).
-- Custom title bar with close button.
+- Custom title bar with close and minimize button. You can enable or disable both buttons.
 - Dark mode and themed icon support.
 - Extend content into titlebar without facing any difficulty
 
