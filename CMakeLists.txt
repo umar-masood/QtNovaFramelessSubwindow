@@ -9,9 +9,6 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Core Gui)
 
 add_executable(SubWindow
-    # Resources
-    resources.qrc
-
     # UI Components
     ../components/Button.cpp  # Write paths to UI Components correctly.
     ../components/SmoothOpacity.cpp  
@@ -19,5 +16,6 @@ add_executable(SubWindow
 )
 
 target_link_libraries(SubWindow PRIVATE Qt6::Widgets Qt6::Gui Qt6::Core dwmapi user32)
+
 
 
