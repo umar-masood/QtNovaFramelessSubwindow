@@ -1,5 +1,6 @@
 #pragma once
 #include "../../components/Button.h"
+#include "../../components/ToolTip.h"
 
 #include <dwmapi.h>
 #include <windowsx.h>
@@ -44,16 +45,19 @@ private:
     bool m_dragging = false;
     QPoint m_dragStartPos;
 
-    // Window Controls
-    Button *closeBtn = nullptr;
-    Button *minimizeBtn = nullptr;
+    // Window Controls    
     bool hasCloseBtn = true;
+    Button *closeBtn = nullptr;
+    ToolTip *closeBtnTip = nullptr;
+
     bool hasMinimizeBtn = false;
+    Button *minimizeBtn = nullptr;
+    ToolTip *minimizeBtnTip = nullptr;
 
     // Theme Mode
     bool isDarkMode = false;
 
-    QWidget *titleBar = nullptr;
-    QWidget *contentAreaWidget = nullptr;
+    QWidget *_titleBarArea = nullptr;
+    QWidget *_contentArea = nullptr;
     QVBoxLayout *entireLayout = nullptr;
 };
