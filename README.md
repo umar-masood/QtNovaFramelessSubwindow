@@ -37,9 +37,10 @@ QPushButton *btn = new QPushButton("Click Me", sub->contentArea());
 QVBoxLayout *layout = new QVBoxLayout(sub->contentArea());
 layout->addWidget(label);
 layout->addWidget(btn);
-
-// Show
 sub->show();
 ```
-> [!IMPORTANT]
+> [!NOTE]
 > If you want to enable close or minimze button in the titlebar of subwindow, then you must pass true value to the constructor of subwindow. You can disable both buttons by passing False to the constructor.
+
+> [!IMPORTANT]
+> Before using this SubWindow in your project, make sure the `correct path` to `Custom Button UI Component` is placed in `CMakeLists.txt` and also in `SubWindow.h` to work efficiently.
