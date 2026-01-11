@@ -1,7 +1,6 @@
 #pragma once
-#include "../../components/Button.h"
-#include "../../components/ToolTip.h"
-
+#include "components/Button.h"
+#include "components/ToolTip.h"
 #include <dwmapi.h>
 #include <windowsx.h>
 #include <windows.h>
@@ -11,7 +10,7 @@
 class SubWindow : public QWidget {
     Q_OBJECT
 
-public:
+    public:
     explicit SubWindow(QSize size = QSize(250, 250), QWidget *parent = nullptr, bool closeButton = true, bool minimizeButton = false);
     virtual ~SubWindow() = default;
 
@@ -20,7 +19,7 @@ public:
     QWidget* contentArea() const;
     QWidget* titleBarArea() const;
 
-protected: 
+    protected: 
     void paintEvent(QPaintEvent *event) override;
     bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result) override;
     void showEvent(QShowEvent *event) override;
@@ -28,11 +27,11 @@ protected:
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
 
-private slots:
+    private slots:
     void onCloseClicked();
     void onMinimizedClicked();
 
-private:
+    private:
     void applyDWMEffects();
     void applyThemedIcons();
     void setupTitleBar();
@@ -61,3 +60,4 @@ private:
     QWidget *_contentArea = nullptr;
     QVBoxLayout *entireLayout = nullptr;
 };
+
