@@ -1,6 +1,6 @@
-# QtNovaFrameless - Subwindow
+# QtNovaFramelessSubwindow
 
-**QtNovaFrameless Subwindow** is a reusable Qt widget that acts as a **frameless subwindow**. It provides a custom **title bar**, **close button**, and supports **dark mode** for modern styled UIs.
+**QtNovaFramelessSubwindow** is a reusable Qt widget that acts as a **frameless subwindow**. It provides a custom **title bar**, **close button**, and supports **dark mode** for modern styled UIs.
 
 ## ✨ Features
 - Frameless child window (no native OS frame).
@@ -30,13 +30,14 @@ SubWindow *sub = new SubWindow(parentWidget);
 sub->setGeometry(100, 100, 600, 400);
 
 // Add your custom widget
-QLabel *label = new QLabel("Hello from SubWindow!", sub->contentArea());
-QPushButton *btn = new QPushButton("Click Me", sub->contentArea());
+QLabel *label = new QLabel("Hello from SubWindow!");
+QPushButton *btn = new QPushButton("Click Me");
 
 // Optionally arrange them with a layout inside content area
 QVBoxLayout *layout = new QVBoxLayout(sub->contentArea());
 layout->addWidget(label);
 layout->addWidget(btn);
+
 sub->show();
 ```
 > [!NOTE]
